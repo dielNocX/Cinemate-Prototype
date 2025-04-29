@@ -1,3 +1,5 @@
+com\pbo\cinemate\prototype\Movie.class
 com\pbo\cinemate\prototype\User.class
 com\pbo\cinemate\prototype\Account.class
+com\pbo\cinemate\prototype\Viewable.class
 com\pbo\cinemate\prototype\CinematePrototype.class

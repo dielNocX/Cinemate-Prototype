@@ -18,7 +18,7 @@ public class User extends Account {
         this.setNama(nama);
         this.setNoTelp(noTelp);
         userCount++;
-        userList.add(this);  
+        userList.add(this);
     }
 
     // Getter and Setter methods
