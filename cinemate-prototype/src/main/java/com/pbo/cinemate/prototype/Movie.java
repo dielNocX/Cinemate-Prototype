@@ -111,7 +111,7 @@ public class Movie implements Viewable {
         System.out.println("| "+String.format("%-20s", "       Title") + " | " + String.format("%-12s", "  Genre")+" |");
         for (Movie m : movieList) {
             System.out.println("| " + String.format("%-20s", m.getTitle().length() > 20 ? m.getTitle().substring(0, 20) : m.getTitle()) 
-                             + " | " + String.format("%-12s", m.getGenresString().length() > 12 ? m.getGenresString().substring(0, 12) : m.getGenresString()) 
+                             + " | " + String.format("%12s", m.getGenresString().length() > 12 ? m.getGenresString().substring(0, 12) : m.getGenresString()) 
                              + " |");
         }
     }

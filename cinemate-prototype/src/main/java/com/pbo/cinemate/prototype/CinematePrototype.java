@@ -16,6 +16,8 @@ public class CinematePrototype {
         normalFlowRegister();
         fillMovie();
         Movie.viewList();
+        fillFnb();
+        FnB.viewList();
     }
     
     public static User normalFlowRegister(){
@@ -42,6 +44,21 @@ public class CinematePrototype {
             new Movie("Si Cepat", new ArrayList<>(List.of("Animation")), LocalDate.of(2025, 12, 1), "Landak biru berlari menyelamatkan dunia"),
             new Movie("Dewi Es", new ArrayList<>(List.of("Animation")), LocalDate.of(2026, 1, 2), "Putri dengan kekuatan salju dan lagu yang meledak"),
             new Movie("Petualangan di Rawa", new ArrayList<>(List.of("Fantasy")), LocalDate.of(2026, 2, 14), "Ogre hijau dan keledai cerewet")
+        };
+    }
+    
+    public static void fillFnb() {
+        FnB[] fnbItems = {
+            new FnB("Popcorn Caramel", 25000, 50),
+            new FnB("Popcorn Butter", 22000, 40),
+            new FnB("Cola Regular", 15000, 60),
+            new FnB("Cola Large", 20000, 40),
+            new FnB("Teh Manis", 12000, 50),
+            new FnB("Air Mineral", 10000, 70),
+            new FnB("Burger Mini", 30000, 20),
+            new FnB("Sosis Bakar", 18000, 25),
+            new FnB("French Fries Regular", 20000, 35),
+            new FnB("French Fries Large", 24000, 35)
         };
     }
 }
