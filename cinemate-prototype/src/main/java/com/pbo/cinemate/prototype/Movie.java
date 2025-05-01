@@ -8,7 +8,7 @@ package com.pbo.cinemate.prototype;
  *
  * @author Asus
  */
-import java.time.LocalDate;
+import java.time.LocalDateTime ;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +18,11 @@ public class Movie implements Viewable {
     private String title;
     private String description;
     private List<String> genres;
-    private LocalDate schedule;
+    private List<LocalDateTime>  schedule;
     public static List<Movie> movieList = new ArrayList<>();
 
     
-    public Movie(String title,  List<String> genres, LocalDate schedule,String description) {
+    public Movie(String title,  List<String> genres, List<LocalDateTime> schedule,String description) {
         setMovieId  ("M"+getMovieCount());
         setTitle  (title);
         setDescription  (description);
@@ -30,6 +30,14 @@ public class Movie implements Viewable {
         setSchedule(schedule);
         movieCount++;
         movieList.add(this);
+    }
+
+    public static List<Movie> getMovieList() {
+        return movieList;
+    }
+
+    public static void setMovieList(List<Movie> movieList) {
+        Movie.movieList = movieList;
     }
 
     public static int getMovieCount() {
@@ -85,11 +93,11 @@ public class Movie implements Viewable {
         this.genres = genres;
     }
 
-    public LocalDate getSchedule() {
+    public List<LocalDateTime> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(LocalDate schedule) {
+    public void setSchedule(List<LocalDateTime> schedule) {
         this.schedule = schedule;
     }
     
@@ -102,8 +110,8 @@ public class Movie implements Viewable {
         System.out.println("Movie ID: \t"+getMovieId());
         System.out.println("Title:\t"+getTitle());
         System.out.println("Genre:\t"+getGenresString());
-        System.out.println("Schedule:\t"+getSchedule());
         System.out.println("Description:\t"+getDescription());
+        System.out.println("Schedule:\t"+getSchedule());
     }
     
     //@Override
