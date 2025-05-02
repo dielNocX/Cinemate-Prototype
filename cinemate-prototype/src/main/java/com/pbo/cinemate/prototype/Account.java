@@ -4,6 +4,9 @@
  */
 package com.pbo.cinemate.prototype;
 //import static com.pbo.cinemate.prototype.User.findUserByUsername;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 /**
  *
@@ -12,15 +15,17 @@ import java.util.Scanner;
 public abstract class Account {
     String username;
     String password;
+    private String name;
     String role;
     String id;
 
-    
-    public Account(String usn,String psw,String role,String id){
+    public static List<Account> accountList = new ArrayList<>();
+
+    public Account(String usn,String psw,String name, String role,String id){
         setPassword(psw);
         setUsername(usn);
         setId(id);
-        setPassword(psw);
+        setName(name);
         setRole(role);
     }
     
@@ -39,6 +44,20 @@ public abstract class Account {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
+    public static List<Account> getAccountList() {
+        return accountList;
+    }
+    
         
     
     public String getUsername() {
@@ -58,7 +77,36 @@ public abstract class Account {
     
     public abstract void showProfile();
         
+    public static Account login() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Username: ");
+        String inputUsername = sc.nextLine();
+        System.out.print("Password: ");
+        String inputPassword = sc.nextLine();
+
+        Account acc = Account.findAccountByUsername(inputUsername);
+
+        if (acc != null && acc.getPassword().equals(inputPassword)) {
+            System.out.println("User " + acc.getUsername() + " logged in successfully.");
+            return acc;
+        } else {
+            System.out.println("Invalid username or password.");
+            return null;
+        }
+        
+    }
     
+    public static Account findAccountByUsername(String username) {
+        for (Account acc : accountList) {
+            if (acc.getUsername().equals(username)) {
+                return acc;
+            }
+        }
+        return null;
+    }
+
+    
+        
     
     
 }

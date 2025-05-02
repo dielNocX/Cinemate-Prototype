@@ -7,6 +7,7 @@ package com.pbo.cinemate.prototype;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -83,25 +84,48 @@ public class FnB implements Viewable {
     }
 
     
-    //public void showSchedule() {
-    //    System.out.println("Schedule for " + title + ": " + schedule.toString());
-    //}
+    public static void showFnb(int idx){
+        getFnbList().get(--idx).viewDetails();
+    }
+    
+    public static void selectFnb(){
+        System.out.print("Pilih nomor menu: ");
+        Scanner sc = new Scanner(System.in);
+        showFnb(sc.nextInt());
+    }
     
     @Override
     public void viewDetails(){
-        System.out.println("FnB ID: \t"+getFnbId());
-        System.out.println("Name:\t"+getName());
-        System.out.println("Price:\t"+getPriceString());
-        System.out.println("Stock:\t"+getStock());
+        System.out.println("Menu item\t: "+getName());
+        System.out.println("Menu ID\t\t: "+getFnbId());
+        System.out.println("Price\t\t: "+getPriceString());
+        System.out.println("Stock\t\t: "+getStock());
     }
     
     //@Override
     public static void viewList(){
-        System.out.println("| "+String.format("%-20s", "         Food") + " | " + String.format("%-15s", "     Price")+" |");
+        System.out.println("|  No "+"| "+String.format("%-20s", "         MENU") + " | " + String.format("%-20s", "      PRICE")+" |");
+        int i=0;
         for (FnB f : fnbList) {
-            System.out.println("| " + String.format("%-20s", f.getName().length() > 20 ? f.getName().substring(0, 20) : f.getName()) 
-                             + " | " + String.format("%15s", f.getPriceString().length() > 15 ? f.getPriceString().substring(0, 15) : f.getPriceString()) 
+            System.out.println("| " +String.format("%3s", String.valueOf(++i)  )+ " | "+ String.format("%-20s", f.getName().length() > 20 ? f.getName().substring(0, 20) : f.getName()) 
+                             + " | " + String.format("%20s", f.getPriceString().length() > 20 ? f.getPriceString().substring(0, 20) : f.getPriceString()) 
                              + " |");
         }
+        System.out.println("");
+    }
+    
+    public static void fillFnb() {
+        FnB[] fnbItems = {
+            new FnB("Popcorn Caramel", 25000, 50),
+            new FnB("Popcorn Butter", 22000, 40),
+            new FnB("Cola Regular", 15000, 60),
+            new FnB("Cola Large", 20000, 40),
+            new FnB("Teh Manis", 12000, 50),
+            new FnB("Air Mineral", 10000, 70),
+            new FnB("Burger Mini", 30000, 20),
+            new FnB("Sosis Bakar", 18000, 25),
+            new FnB("French Fries Regular", 20000, 35),
+            new FnB("French Fries Large", 24000, 35)
+        };
     }
 }

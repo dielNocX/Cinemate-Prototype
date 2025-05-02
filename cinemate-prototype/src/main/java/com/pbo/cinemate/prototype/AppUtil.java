@@ -24,5 +24,11 @@ public class AppUtil {
         return new ArrayList<>(List.of(elements));
     }
     
+    public static ArrayList<LocalDateTime> createScheduleList(List<LocalDateTime> dateTimes) {
+    // Example: Sorting the list before returning
+    dateTimes.sort((d1, d2) -> d1.compareTo(d2));
+    return new ArrayList<>(dateTimes);
+}
+    
 
 }
