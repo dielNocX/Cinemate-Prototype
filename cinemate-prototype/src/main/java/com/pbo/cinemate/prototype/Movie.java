@@ -11,6 +11,8 @@ package com.pbo.cinemate.prototype;
 import java.time.LocalDateTime ;
 import java.util.ArrayList;
 import java.util.List;  
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Scanner;  
 import java.util.stream.Collectors;
 import java.time.format.DateTimeFormatter;
@@ -23,7 +25,7 @@ public class Movie implements Viewable {
     private List<String> genres;
     private List<LocalDateTime>  schedule;
     private static List<Movie> movieList = new ArrayList<>();
-
+    private Map<LocalDateTime, List<String>> seatMap = new HashMap<>(); // can be 
     
     public Movie(String title,  List<String> genres, List<LocalDateTime> schedule,String description) {
         setMovieId  ("M"+getMovieCount());
@@ -109,6 +111,19 @@ public class Movie implements Viewable {
 
     public void setSchedule(List<LocalDateTime> schedule) {
         this.schedule = schedule;
+
+        // seats for each schedule
+        for (LocalDateTime time : schedule) {
+            List<String> seats = new ArrayList<>();
+            for (int i = 1; i <= 200; i++) {
+                seats.add(String.valueOf(i));
+            }
+            seatMap.put(time, seats);
+        }
+    }   
+    
+    public java.util.Map<LocalDateTime, List<String>> getSeatMap() {
+        return seatMap;
     }
     
     public void showSchedule() {

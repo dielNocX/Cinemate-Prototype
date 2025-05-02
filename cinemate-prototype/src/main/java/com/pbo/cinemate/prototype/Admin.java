@@ -80,6 +80,9 @@ public class Admin extends Account{
                 new Admin(nama, username, password);
                 System.out.println("Admin " + nama + " created successfully.");
                 break;
+            } else {
+                System.out.println("Username already exist.");
+                
             }
         }
         
