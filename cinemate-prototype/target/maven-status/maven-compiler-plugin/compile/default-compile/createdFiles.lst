@@ -1,7 +1,9 @@
 com\pbo\cinemate\prototype\User.class
 com\pbo\cinemate\prototype\FnB.class
+com\pbo\cinemate\prototype\Order.class
 com\pbo\cinemate\prototype\Viewable.class
 com\pbo\cinemate\prototype\Admin.class
+com\pbo\cinemate\prototype\OrderHistory.class
 com\pbo\cinemate\prototype\Ticket.class
 com\pbo\cinemate\prototype\Movie.class
 com\pbo\cinemate\prototype\Account.class

@@ -85,13 +85,15 @@ public class FnB implements Viewable {
 
     
     public static void showFnb(int idx){
-        getFnbList().get(--idx).viewDetails();
+        getFnbList().get(idx).viewDetails();
     }
     
-    public static void selectFnb(){
+    public static int selectFnb(){
         System.out.print("Pilih nomor menu: ");
         Scanner sc = new Scanner(System.in);
-        showFnb(sc.nextInt());
+        int idx = sc.nextInt()-1;
+        if (idx >=0) showFnb(idx);
+        return idx;
     }
     
     @Override

@@ -20,11 +20,13 @@ public class CinematePrototype {
         acc = normalFlowRegister();
         
         if (acc instanceof User){
-            Movie.viewList();
-            Movie.selectMovie();
-            
-            FnB.viewList();
-            FnB.selectFnb();
+//            Movie.viewList();
+//            Movie.selectMovie();
+//          
+//            FnB.viewList();
+//            FnB.selectFnb();
+            ((User) acc).orderMovie();
+            ((User) acc).showOrderHistory();
         }
         
         

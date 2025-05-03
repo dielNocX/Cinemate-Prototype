@@ -9,13 +9,17 @@ package com.pbo.cinemate.prototype;
  * @author Asus
  */
 import java.time.LocalDateTime ;
+import java.time.LocalDate ;
+import java.time.LocalTime ;
 import java.util.ArrayList;
 import java.util.List;  
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Collections;
 import java.util.Scanner;  
 import java.util.stream.Collectors;
 import java.time.format.DateTimeFormatter;
+
 
 public class Movie implements Viewable {
     private static int movieCount = 1;
@@ -36,7 +40,7 @@ public class Movie implements Viewable {
         movieCount++;
         movieList.add(this);
     }
-
+    
     public static List<Movie> getMovieList() {
         return movieList;
     }
@@ -112,7 +116,7 @@ public class Movie implements Viewable {
     public void setSchedule(List<LocalDateTime> schedule) {
         this.schedule = schedule;
 
-        // seats for each schedule
+        //seat untuk setiap schedule
         for (LocalDateTime time : schedule) {
             List<String> seats = new ArrayList<>();
             for (int i = 1; i <= 200; i++) {
@@ -120,14 +124,42 @@ public class Movie implements Viewable {
             }
             seatMap.put(time, seats);
         }
-    }   
+    }
     
-    public java.util.Map<LocalDateTime, List<String>> getSeatMap() {
+    
+    
+    public Map<LocalDateTime, List<String>> getSeatMap() {
         return seatMap;
     }
     
+    
     public void showSchedule() {
         System.out.println("Schedule for " + title + ": " + schedule.toString());
+    }
+    
+    public void showScheduleGroupedByDate() {
+        if (schedule == null || schedule.isEmpty()) {
+            System.out.println("No available schedule.");
+            return;
+        }
+
+        Collections.sort(schedule);
+
+        LocalDate current = null;
+        int count =0;
+        for (LocalDateTime dateTime : schedule) {
+            LocalDate date = dateTime.toLocalDate();
+            LocalTime time = dateTime.toLocalTime();
+
+            if (!date.equals(current)) {
+                
+                System.out.println("Date: " + date);
+                current = date;
+                count=0;
+            }
+
+            System.out.println((++count) + ". " + time);
+        }
     }
     
     @Override
@@ -176,6 +208,8 @@ public class Movie implements Viewable {
             new Movie("Petualangan di Rawa", AppUtil.arrayListOf("Fantasy"), AppUtil.arrayListOf(LocalDateTime.of(2026, 2, 14, 0, 0)), "Ogre hijau dan keledai cerewet")
         );
     }
+    
+    
     
 }
 
