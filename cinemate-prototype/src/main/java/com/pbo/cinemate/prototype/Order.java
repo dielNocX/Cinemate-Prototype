@@ -27,6 +27,7 @@ public class Order implements Viewable {
     private long cost;
     private Movie movie;
     private LocalDateTime time;
+    private Payment payment;
     private HashMap<FnB, Integer> fnb = new HashMap<>();
 
     public Order(List<String> seatNumber, long cost, long fnbCost, Movie movie, LocalDateTime time) {
@@ -54,6 +55,7 @@ public class Order implements Viewable {
         orderFnb();
         calculateCost();
         orderSummary();
+        payment = Payment.payOrder(this);
     }
 
     public void selectTime() {
@@ -194,5 +196,8 @@ public class Order implements Viewable {
     public void setFnbCost(long fnbCost) { this.fnbCost = fnbCost; }
     public HashMap<FnB, Integer> getFnb() { return fnb; }
     public void setFnb(HashMap<FnB, Integer> fnb) { this.fnb = fnb; }
+    public Payment getPayment() {return payment;}
+    public void setPayment(Payment payment) {this.payment = payment;}
+
 }
 

@@ -6,6 +6,7 @@ com\pbo\cinemate\prototype\Admin.class
 com\pbo\cinemate\prototype\OrderHistory.class
 com\pbo\cinemate\prototype\Ticket.class
 com\pbo\cinemate\prototype\Movie.class
+com\pbo\cinemate\prototype\Payment.class
 com\pbo\cinemate\prototype\Account.class
 com\pbo\cinemate\prototype\AppUtil.class
 com\pbo\cinemate\prototype\CinematePrototype.class
